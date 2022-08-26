@@ -13,6 +13,14 @@ members = [
 name="native-launcher"
 path="launchers/native/src/main.rs"
 
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
 # Optimizations for WASM
 [profile.release]
 panic = 'abort'
@@ -21,6 +29,63 @@ opt-level = 'z'
 lto = true
 
 [dependencies]
-bevy = "0.8.1"
 image = "0.24.3"
 winit = "0.26.1"
+bevy_asset_loader = "0.12.1"
+
+[dependencies.bevy]
+version = "0.8.1"
+default-features = false
+features = [
+  # Bevy functionality:
+  "bevy_asset",         # Assets management
+  # "bevy_scene",         # Scenes management
+  # "bevy_gilrs",         # Gamepad input support
+  # "bevy_audio",         # Builtin audio
+  "bevy_winit",         # Window management
+  "animation",          # Animation support
+  "x11",                # Linux: Support X11 windowing system
+  # "filesystem_watcher", # Asset hot-reloading
+
+  ## "render" actually just includes:
+  ## (feel free to use just a subset of these, instead of "render")
+  "bevy_render",        # Rendering framework core
+  "bevy_core_pipeline", # Common rendering abstractions
+  "bevy_sprite",        # 2D (sprites) rendering
+  # "bevy_pbr",           # 3D (physically-based) rendering
+  # "bevy_gltf",          # GLTF 3D assets format support
+  "bevy_text",          # Text/font rendering
+  "bevy_ui",            # UI toolkit
+
+  # File formats:
+  "png",
+  # "hdr",
+  # "vorbis",
+
+  # These are other features that may be of interest:
+  # (add any of these that you need)
+
+  # Bevy functionality:
+  # "wayland",              # Linux: Support Wayland windowing system
+  # "subpixel_glyph_atlas", # Subpixel antialiasing for text/fonts
+  # "serialize",            # Support for `serde` Serialize/Deserialize
+
+  # File formats:
+  # "ktx2", # preferred format for GPU textures
+  # "dds",
+  # "jpeg",
+  # "bmp",
+  # "tga",
+  # "basis-universal",
+  # "zstd", # needed if using zstd in KTX2 files
+  # "flac",
+  # "mp3",
+  # "wav",
+
+  # Development/Debug features:
+  # "dynamic",      # Dynamic linking for faster compile-times
+  # "trace",        # Enable tracing for performance measurement
+  # "trace_tracy",  # Tracing using `tracy`
+  # "trace_chrome", # Tracing using the Chrome format
+  # "wgpu_trace",   # WGPU/rendering tracing
+]
