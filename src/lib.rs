@@ -9,6 +9,7 @@ pub mod setup_plugin;
 pub mod storage;
 
 pub use app::app;
+pub use consts::LAUNCHER_TITLE;
 
 // pub mod prelude {
 //     pub use crate::{

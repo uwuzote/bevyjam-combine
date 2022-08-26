@@ -1,5 +1,7 @@
 use bevy::prelude::{ClearColor, Color};
 
+pub const LAUNCHER_TITLE: &'static str = "Koci4 combinations";
+
 pub const PIXEL_SCALE: f32 = 3.0;
 
 pub const TILE_SIZE: f32 = 24.0;
