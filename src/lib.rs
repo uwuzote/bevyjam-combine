@@ -5,7 +5,9 @@ pub mod app;
 pub mod assets;
 pub mod comps;
 pub mod consts;
+pub mod mov;
 pub mod setup_plugin;
+pub mod state;
 pub mod storage;
 
 pub use app::app;
