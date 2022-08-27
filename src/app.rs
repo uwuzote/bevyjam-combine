@@ -3,6 +3,7 @@ use crate::consts::{CLEAR_COLOR, LAUNCHER_TITLE};
 use crate::mov::MovementPlugin;
 use crate::setup_plugin::SetupPlugin;
 use crate::state::{quit_by_esc, toggle_state, GameState};
+use crate::ui::UiPlugin;
 use bevy::{prelude::*, render::texture::ImageSettings, window::WindowMode};
 
 pub fn app() -> App {
@@ -23,6 +24,7 @@ pub fn app() -> App {
         .add_state(GameState::Game)
         .add_plugin(AnimationPlugin)
         .add_plugin(MovementPlugin)
+        .add_plugin(UiPlugin)
         .add_system(toggle_state)
         .add_system_set(
             SystemSet::on_update(GameState::Items).with_system(quit_by_esc),

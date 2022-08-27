@@ -1,6 +1,7 @@
 use crate::assets::Assets;
 use crate::comps::*;
 use crate::consts::*;
+use crate::storage::{DemonInventory, Item};
 use bevy::prelude::*;
 use bevy_asset_loader::prelude::*;
 
@@ -41,6 +42,19 @@ pub fn setup_spawn_specials(world: &mut World) {
                 .insert(Demon)
                 .insert(ActiveDemon)
                 .insert(HighlighterTexture(koci4_shade.clone_weak()))
+                .insert(ActiveSlot::First)
+                .insert(
+                    DemonInventory::new(
+                        1,
+                        &[],
+                        &[
+                            (Item::Sulfur, 8),
+                            (Item::Hellfire, 2),
+                            (Item::InfernoFlames, 200),
+                        ],
+                    )
+                    .unwrap(),
+                )
                 .insert_bundle(SpriteBundle {
                     texture: koci4,
                     transform: Transform::identity()

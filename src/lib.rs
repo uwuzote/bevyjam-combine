@@ -9,6 +9,7 @@ pub mod mov;
 pub mod setup_plugin;
 pub mod state;
 pub mod storage;
+pub mod ui;
 
 pub use app::app;
 pub use consts::LAUNCHER_TITLE;

@@ -7,12 +7,12 @@ pub const MAX_STORAGE: usize = 64;
 #[repr(u8)]
 pub enum Item {
     #[default]
-    Nothing = 31,
+    Nothing = u8::MAX,
 
     Hellfire = 0,
     InfernoFlames,
-    Pebbles,
     Sulfur,
+    Pebbles,
 }
 
 impl Item {

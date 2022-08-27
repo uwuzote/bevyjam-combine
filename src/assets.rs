@@ -6,24 +6,27 @@ use bevy_asset_loader::prelude::*;
 )]
 pub struct Assets {
     #[asset(
-        paths(
-            "demons/00d-koci4.png",
-            "demons/00s-koci4.png",
-            "demons/01d-exban1.png",
-            "demons/01s-exban1.png",
-        ),
+        // paths(
+        //     "demons/00d-koci4.png",
+        //     "demons/00s-koci4.png",
+        //     "demons/01d-exban1.png",
+        //     "demons/01s-exban1.png",
+        // ),
+        path = "demons",
         collection(typed)
     )]
     pub demons: Vec<Handle<Image>>,
 
     #[asset(
-        paths("items/00-hellfire.png", "items/01-infernoflames.png",),
+        // paths("items/00-hellfire.png", "items/01-infernoflames.png",),
+        path = "items",
         collection(typed)
     )]
     pub items: Vec<Handle<Image>>,
 
     #[asset(
-        paths("tiles/00-infernoflames.png", "tiles/01-chest.png",),
+        // paths("tiles/00-infernoflames.png", "tiles/01-chest.png",),
+        path = "tiles",
         collection(typed)
     )]
     pub tiles: Vec<Handle<Image>>,

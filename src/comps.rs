@@ -53,3 +53,26 @@ pub struct UiDemonInvNode;
     Debug, Clone, Copy, Component, Default, PartialEq, Eq, PartialOrd, Ord, Hash,
 )]
 pub struct UiStorageInvNode;
+
+/// Root of hotbar node (single)
+#[derive(
+    Debug, Clone, Copy, Component, Default, PartialEq, Eq, PartialOrd, Ord, Hash,
+)]
+pub struct UiHotbarNode;
+
+/// Item holder in hotbar node (single)
+#[derive(
+    Debug, Clone, Copy, Component, Default, PartialEq, Eq, PartialOrd, Ord, Hash,
+)]
+pub struct UiHotbarInvNode;
+
+/// Active demon's slot
+#[derive(
+    Debug, Clone, Copy, Component, Default, PartialEq, Eq, PartialOrd, Ord, Hash,
+)]
+pub enum ActiveSlot {
+    #[default]
+    First,
+    Second,
+    Third,
+}
