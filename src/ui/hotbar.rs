@@ -102,7 +102,8 @@ pub fn update_hotbar(
 
 fn get_cell_color(lhs: ActiveSlot, rhs: ActiveSlot) -> UiColor {
     if lhs == rhs {
-        Color::rgba(1.0, 1.0, 1.0, 0.5).into()
+        // Color::rgba(1.0, 1.0, 1.0, 0.5).into()
+        Color::GREEN.into()
     } else {
         Color::NONE.into()
     }
